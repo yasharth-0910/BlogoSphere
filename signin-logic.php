@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
                 } else {
                     $_SESSION['is_admin'] = false;
                     // Redirect to home page if not admin
-                    header('Location: ' . ROOT_URL . 'index.php');
+                    header('Location: ' . ROOT_URL . 'user.php');
                 }
                 die();
             } else {

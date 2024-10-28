@@ -7,93 +7,95 @@ require './config/database.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlogoSphere - The Future of Blogging</title>
+    <title>BlogoSphere - Where Ideas Flourish</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Open+Sans:wght@400;600;700&display=swap');
+    </style>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'sans': ['Open Sans', 'sans-serif'],
+                        'serif': ['Merriweather', 'serif'],
                     },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        }
-                    }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-gray-900 text-white font-orbitron">
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
     <div class="min-h-screen flex flex-col">
         <!-- Navigation -->
-        <nav class="bg-gray-800 p-4">
-            <div class="container mx-auto flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">BlogoSphere</a>
-                <div class="space-x-4">
-                    <a href="#features" class="hover:text-blue-400 transition-colors">Features</a>
-                    <a href="#team" class="hover:text-blue-400 transition-colors">Team</a>
-                    <a href="signup.php" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-full transition-colors">Join Now</a>
+        <nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-4 sticky top-0 z-10">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <a href="#" class="text-2xl font-serif font-bold text-gray-900 dark:text-white">BlogoSphere</a>
+                <div class="space-x-6 flex items-center">
+                    <a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Features</a>
+                    <a href="#posts" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Posts</a>
+                    <a href="signup.php" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors text-sm font-semibold">Get started</a>
+                    <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </nav>
 
         <!-- Hero Section -->
-        <header class="py-20 text-center">
-            <h1 class="text-5xl font-bold mb-4 animate-pulse-slow">Welcome to BlogoSphere</h1>
-            <p class="text-xl mb-8">The Future of Blogging is Here</p>
-            <a href="signup.php" class="bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-full text-lg transition-all transform hover:scale-105">Start Your Journey</a>
+        <header class="py-20 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-4 max-w-4xl text-center">
+                <h1 class="text-5xl font-serif font-bold mb-6 leading-tight">Where Ideas Take Flight</h1>
+                <p class="text-xl mb-8 text-gray-600 dark:text-gray-300">Join a community of thinkers, dreamers, and doers. Share your story with the world.</p>
+                <a href="signup.php" class="bg-green-600 text-white hover:bg-green-700 px-8 py-3 rounded-full text-lg font-semibold transition-colors inline-block">Start writing</a>
+            </div>
         </header>
 
         <!-- Features Section -->
-        <section id="features" class="py-20 bg-gray-800">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Futuristic Features</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg transform transition-all hover:scale-105">
-                        <h3 class="text-xl font-bold mb-4">AI-Powered Moderation</h3>
-                        <p>Our advanced AI ensures a safe and respectful blogging environment, automatically filtering inappropriate content.</p>
+        <section id="features" class="py-20">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl font-serif font-bold text-center mb-12">Why BlogoSphere?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">Elegant Simplicity</h3>
+                        <p class="text-gray-600 dark:text-gray-400">A clean, distraction-free writing experience that lets your content shine.</p>
                     </div>
-                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg transform transition-all hover:scale-105">
-                        <h3 class="text-xl font-bold mb-4">Quantum Encryption</h3>
-                        <p>Your posts are secured with cutting-edge quantum encryption, ensuring unparalleled privacy and data protection.</p>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">Engaged Community</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Connect with readers and fellow writers who share your passions.</p>
                     </div>
-                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg transform transition-all hover:scale-105">
-                        <h3 class="text-xl font-bold mb-4">Holographic Previews</h3>
-                        <p>Experience your blog posts in 3D with our revolutionary holographic preview technology (VR headset required).</p>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">Powerful Tools</h3>
+                        <p class="text-gray-600 dark:text-gray-400">From SEO optimization to analytics, we've got the tools you need to succeed.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Blog Preview Section -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Trending in the Blogosphere</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section id="posts" class="py-20 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl font-serif font-bold text-center mb-12">Featured Stories</h2>
+                <div class="space-y-12">
                     <?php
-                    // Simulated blog posts - in a real scenario, these would come from a database
                     $posts = [
-                        ['title' => 'The Rise of Quantum Computing', 'excerpt' => 'Exploring the potential of qubits in revolutionizing data processing...', 'author' => 'Dr. Quanta', 'date' => '2023-06-15'],
-                        ['title' => 'AI Ethics in the 22nd Century', 'excerpt' => 'As AI continues to evolve, we must address the ethical implications...', 'author' => 'EthicBot 3000', 'date' => '2023-06-14'],
-                        ['title' => 'Terraforming Mars: A Reality Check', 'excerpt' => 'Recent advancements in atmospheric manipulation bring us closer to...', 'author' => 'Cosmic Pioneer', 'date' => '2023-06-13'],
+                        ['title' => 'The Art of Mindful Productivity', 'excerpt' => 'Discover how mindfulness can transform your work life and boost your productivity...', 'author' => 'Emma Woodhouse', 'date' => 'June 15, 2023', 'readTime' => '7 min read'],
+                        ['title' => 'Sustainable Living in the Digital Age', 'excerpt' => 'Exploring practical ways to reduce our carbon footprint while embracing technology...', 'author' => 'Ethan Green', 'date' => 'June 14, 2023', 'readTime' => '5 min read'],
+                        ['title' => 'The Renaissance of Local Cuisine', 'excerpt' => 'How chefs around the world are rediscovering and reimagining their local food heritage...', 'author' => 'Sophie Chen', 'date' => 'June 13, 2023', 'readTime' => '6 min read'],
                     ];
 
                     foreach ($posts as $post):
                     ?>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-bold mb-2"><?= htmlspecialchars($post['title']) ?></h3>
-                        <p class="text-gray-400 mb-4"><?= htmlspecialchars($post['excerpt']) ?></p>
-                        <div class="flex justify-between text-sm text-gray-500">
-                            <span><?= htmlspecialchars($post['author']) ?></span>
-                            <span><?= htmlspecialchars($post['date']) ?></span>
+                    <div class="border-b border-gray-200 dark:border-gray-700 pb-8 last:border-b-0">
+                        <h3 class="text-2xl font-serif font-bold mb-2"><?= htmlspecialchars($post['title']) ?></h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4"><?= htmlspecialchars($post['excerpt']) ?></p>
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <span class="mr-4"><?= htmlspecialchars($post['author']) ?></span>
+                            <span class="mr-4"><?= htmlspecialchars($post['date']) ?></span>
+                            <span><?= htmlspecialchars($post['readTime']) ?></span>
                         </div>
                     </div>
                     <?php endforeach; ?>
@@ -101,49 +103,58 @@ require './config/database.php';
             </div>
         </section>
 
-        <!-- Team Section -->
-        <section id="team" class="py-20 bg-gray-800">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Our Visionary Team</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="text-center">
-                        <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center animate-float">
-                            <span class="text-4xl">🚀</span>
-                        </div>
-                        <h3 class="text-xl font-bold">Nova Stellar</h3>
-                        <p class="text-gray-400">Quantum Code Architect</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center animate-float" style="animation-delay: 0.2s;">
-                            <span class="text-4xl">🤖</span>
-                        </div>
-                        <h3 class="text-xl font-bold">Zephyr AI</h3>
-                        <p class="text-gray-400">Neural Network Specialist</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center animate-float" style="animation-delay: 0.4s;">
-                            <span class="text-4xl">🌌</span>
-                        </div>
-                        <h3 class="text-xl font-bold">Cosmos Flux</h3>
-                        <p class="text-gray-400">Galactic UX Designer</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Call to Action -->
-        <section class="py-20 text-center">
-            <h2 class="text-3xl font-bold mb-4">Ready to Shape the Future of Blogging?</h2>
-            <p class="text-xl mb-8">Join BlogoSphere today and be part of the digital revolution!</p>
-            <a href="signup.php" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-lg transition-all transform hover:scale-105 inline-block">Create Your Account</a>
+        <section class="py-20 bg-green-600 dark:bg-green-700 text-white">
+            <div class="container mx-auto px-4 max-w-4xl text-center">
+                <h2 class="text-3xl font-serif font-bold mb-4">Ready to Share Your Story?</h2>
+                <p class="text-xl mb-8">Join BlogoSphere today and start your writing journey.</p>
+                <a href="signup.php" class="bg-white text-green-600 hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 px-8 py-3 rounded-full text-lg font-semibold transition-colors inline-block">Create your account</a>
+            </div>
         </section>
 
         <!-- Footer -->
-        <footer class="bg-gray-800 py-8">
-            <div class="container mx-auto px-4 text-center">
-                <p>&copy; <?= date('Y') ?> BlogoSphere | Pioneering the Future of Digital Expression</p>
+        <footer class="bg-gray-100 dark:bg-gray-800 py-8">
+            <div class="container mx-auto px-4 text-center text-sm text-gray-600 dark:text-gray-400">
+                <p>&copy; <?= date('Y') ?> BlogoSphere | Empowering voices, one story at a time</p>
             </div>
         </footer>
     </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Function to set the theme
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        }
+
+        // Toggle theme when button is clicked
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.classList.contains('dark') ? 'light' : 'dark';
+            setTheme(currentTheme);
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    </script>
 </body>
 </html>

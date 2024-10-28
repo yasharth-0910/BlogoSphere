@@ -7,50 +7,122 @@ require './config/database.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlogoSphere - Access Your Digital Realm</title>
+    <title>Sign In - BlogoSphere</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Open+Sans:wght@400;600;700&display=swap');
+    </style>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'bounce-slow': 'bounce 3s infinite',
+                    fontFamily: {
+                        'sans': ['Open Sans', 'sans-serif'],
+                        'serif': ['Merriweather', 'serif'],
                     },
                 }
             }
         }
     </script>
 </head>
-<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4 font-sans text-gray-100">
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-purple-900"></div>
-        <div class="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzE3MTcyNiI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIxLjUiIGZpbGw9IiMzNDM0NTYiPjwvY2lyY2xlPgo8L3N2Zz4=')]"></div>
-    </div>
-    <div class="relative bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl border border-gray-700 p-6 w-full max-w-sm shadow-2xl">
-        
-        <h1 class="text-3xl font-bold text-center mb-6 mt-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">BlogoSphere</h1>
-        <form action="<?= ROOT_URL ?>signin-logic.php" method="post" enctype="multipart/form-data" class="space-y-4">
-            <div>
-                <input type="text" id="username" name="username" required placeholder="Username" class="w-full px-4 py-2 bg-gray-700 border-2 border-gray-600 rounded-lg focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 text-white transition-all duration-300 outline-none">
-            </div>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+    <div class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <h1 class="text-3xl font-bold text-center font-serif mb-6">Sign In to BlogoSphere</h1>
+        </div>
 
-            <div>
-                <input type="password" id="password" name="password" required placeholder="Password" class="w-full px-4 py-2 bg-gray-700 border-2 border-gray-600 rounded-lg focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 text-white transition-all duration-300 outline-none">
-            </div>
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <form action="<?= ROOT_URL ?>signin-logic.php" method="post" class="space-y-6">
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Username</label>
+                        <input type="text" name="username" id="username" required class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:text-white">
+                    </div>
 
-            <button type="submit" name="submit" class="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-white font-medium transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
-                Enter
-            </button>
-        </form>
-        <div class="mt-4 text-center text-sm">
-            <a href="signup.php" class="text-indigo-400 hover:text-indigo-300 transition-colors">Create Account</a>
-            <span class="mx-2">|</span>
-            <a href="forgotpassword.php" class="text-indigo-400 hover:text-indigo-300 transition-colors">Forgot Password?</a>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
+                        <input type="password" name="password" id="password" required class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:text-white">
+                    </div>
+
+                    <div>
+                        <button type="submit" name="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+                                Or
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <div>
+                            <a href="signup.php" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                Create account
+                            </a>
+                        </div>
+                        <div>
+                            <a href="forgotpassword.php" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                Forgot password
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="absolute bottom-4 left-4 text-white text-opacity-50 text-xs">
-        BlogoSphere &copy; <?= date('Y') ?> | Unleash Your Words
+
+    <div class="fixed bottom-4 right-4">
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+        </button>
     </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        }
+
+        // Toggle theme when button is clicked
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.classList.contains('dark') ? 'light' : 'dark';
+            setTheme(currentTheme);
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    </script>
 </body>
 </html>
