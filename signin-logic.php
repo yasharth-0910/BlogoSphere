@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
                 if ($user['is_admin'] == 1) {
                     $_SESSION['is_admin'] = true;
                     // Redirect to admin dashboard if admin
-                    header('Location: ' . ROOT_URL . 'admin.php');
+                    header('Location: ' . ROOT_URL . 'admin/index.php');
                 } else {
                     $_SESSION['is_admin'] = false;
                     // Redirect to home page if not admin
